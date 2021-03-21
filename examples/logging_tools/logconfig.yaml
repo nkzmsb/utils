@@ -1,0 +1,23 @@
+version: 1
+disable_existing_loggers: False
+formatters:
+  my_default:
+    # Enter the tab as it is (don't use "\t")
+    format: '%(asctime)s  %(levelname)-8s %(name)-12s %(message)s'
+  # you can add formatters here
+handlers:
+  console:
+    class: logging.StreamHandler
+    formatter: my_default
+    filters: [tag_filter] # filters are defined in logconfig.py
+  # you can add handlers here
+loggers:
+  package:
+    level: DEBUG
+    handlers: [console]
+    propagate: False
+  # you can add loggers here
+root:
+    level: DEBUG
+    handlers: [console]
+    propagate: False

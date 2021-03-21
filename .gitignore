@@ -1,1 +1,3 @@
-examples/logging_tools/package/__pycache__
+__pycache__/
+.vscode/
+examples/logging_tools/package/__pycache__/
