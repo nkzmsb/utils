@@ -15,9 +15,8 @@ loggers:
   package:
     level: DEBUG
     handlers: [console]
-    propagate: False
+    propagate: False # "propagate" of top-level logger should be set to False to prevent duplicate output.
   # you can add loggers here
 root:
     level: DEBUG
     handlers: [console]
-    propagate: False

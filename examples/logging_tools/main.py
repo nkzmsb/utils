@@ -12,12 +12,8 @@ import package.module as md
 
 logger = logging.getLogger(__name__)
 
-conf_dic = logconfig.load_logconfig_dic("examples/logging_tools/logconfig.yaml",filtering=True)
+conf_dic = logconfig.load_logconfig_dic("examples/logging_tools/logconfig.yaml",filtering=False)
 logging.config.dictConfig(conf_dic)
-
-print("============")
-#print(conf_dic)
-print("============")
 
 logger.info("start")
 md.testfunc(3,4)

@@ -37,13 +37,17 @@ class TagFilter(logging.Filter):
 
         return ret
  
-def addfilter(logconfig_dic):
+def addfilter(logconfig_dic, filtering=False):
     """configにfilter情報を付加する
     
     Parameters
     ----------
     logconfig_dic : dict
         付加対象の辞書
+    filtering : bool, optional
+        filterを付加するかどうか
+        付加の仕方は、このクラス内を自分で編集する必要がある
+        , by default False
 
     Returns
     -------
@@ -76,7 +80,11 @@ def addfilter(logconfig_dic):
     
     #####################################################
     # この部分をyamlファイルと付加させる対象にあわせて編集する
-    filterinfo_dic = {"tag_filter" : {'()': TagFilter}}
+    if filtering:
+        filterinfo_dic = {"tag_filter" : {'()': TagFilter}}
+    else:
+        # filterを付加しない場合は、デフォルトのフィルタ（logging.Filter）を設定する
+        filterinfo_dic = {"tag_filter" : {'()': logging.Filter}}
     #####################################################
     
     added_dic["filters"] = filterinfo_dic
@@ -116,8 +124,7 @@ def load_logconfig_dic(yaml_filepath, filtering=False):
         print(fnfe)
         raise
     
-    if filtering:
-        yaml_dic = addfilter(yaml_dic)
+    yaml_dic = addfilter(yaml_dic, filtering)
               
     return yaml_dic
 
