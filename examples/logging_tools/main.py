@@ -12,7 +12,7 @@ import package.module as md
 
 logger = logging.getLogger(__name__)
 
-conf_dic = logconfig.load_logconfig_dic("examples/logging_tools/logconfig.yaml",filtering=False)
+conf_dic = logconfig.load_logconfig_dic("examples/logging_tools/logconfig.yaml",filtering=True)
 logging.config.dictConfig(conf_dic)
 
 logger.info("start")
