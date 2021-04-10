@@ -11,7 +11,7 @@ import yaml
 
 # Filterの定義
 class TagFilter(logging.Filter):
-    """traceモードをフィルタリング
+    """filterTagの値に応じてログをフィルタリング
 
     logのメッセージに
         "filterTag" : "detail"

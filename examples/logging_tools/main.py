@@ -6,10 +6,6 @@ import logging, logging.config
 import logconfig
 import package.module as md
 
-# logging.basicConfig(level=logging.DEBUG
-#                     , format='%(asctime)s\t%(levelname)-8s\t%(name)-12s\t%(message)s'
-#                     )
-
 logger = logging.getLogger(__name__)
 
 conf_dic = logconfig.load_logconfig_dic("examples/logging_tools/logconfig.yaml",filtering=True)
