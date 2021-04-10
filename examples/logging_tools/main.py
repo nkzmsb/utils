@@ -12,7 +12,7 @@ conf_dic = logconfig.load_logconfig_dic("examples/logging_tools/logconfig.yaml",
 logging.config.dictConfig(conf_dic)
 
 logger.info("start")
-md.testfunc(3,4)
+print(md.testfunc(3,4))
 tc = md.TestClass()
-tc.sub(bb=5,aa=3)
+print(tc.sub(bb=5,aa=3))
 logger.info("end")

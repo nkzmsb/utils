@@ -27,9 +27,10 @@ class LoggingTools():
         def wrap(*args,**kwargs):
             self.logger.debug({"action":"run"
                                , "function":func.__qualname__})
-            func(*args, **kwargs)
+            ret = func(*args, **kwargs)
             self.logger.debug({"action":"finished"
                                , "function":func.__qualname__})
+            return ret
         return wrap
     
 def getfuncname()->str:

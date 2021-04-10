@@ -15,6 +15,7 @@ def testfunc(a,b):
                       , "func":getfuncname()
                       , "values":{"args":[a,b], "return":ret}}) # loggerを使って任意のログを発生
     log.logger.info({"func":getfuncname(), "values":{"return":ret}})
+    return ret
     
 class TestClass(object):
     @log.log_deco
@@ -30,3 +31,4 @@ class TestClass(object):
                         , "func":getfuncname()
                         , "values":{"args":[aa,bb], "return":ret}}) # loggerを使って任意のログを発生
         log.logger.info({"func":getfuncname(), "values":{"return":ret}})
+        return ret
